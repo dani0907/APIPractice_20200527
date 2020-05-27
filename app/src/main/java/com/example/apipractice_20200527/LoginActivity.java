@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.apipractice_20200527.databinding.ActivityLoginBinding;
 import com.example.apipractice_20200527.utils.ServerUtil;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -38,6 +39,20 @@ public class LoginActivity extends BaseActivity {
                     @Override
                     public void onResponse(JSONObject json) {
                         Log.d("Json확인",json.toString());
+
+                        try {
+                            int code = json.getInt("code");
+
+                            if(code ==200){
+                                Log.d("분석결과","로그인 성공!");
+                            }
+                            else{
+                                Log.d("분석결과","로그인 실패...");
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
             }
