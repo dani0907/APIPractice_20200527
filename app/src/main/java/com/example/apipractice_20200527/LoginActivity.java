@@ -2,6 +2,7 @@ package com.example.apipractice_20200527;
 
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,14 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+
+        binding.singUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mContxt,SignUpActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
