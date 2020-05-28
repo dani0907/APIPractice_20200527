@@ -98,12 +98,18 @@
                 android:hint="닉네임을 입력해주세요.(한글 가능)"
                 android:inputType="textEmailAddress"/>
             <Button
-                android:id="@+id/nickBtn"
+                android:id="@+id/nickCheckBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="중복확인"
                 android:layout_gravity="right"/>
         </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="중복검사를 해주세요."
+            android:textColor="#a0a0a0"
+            android:id="@+id/nickNameCheckResultTxt"/>
 
         <TextView
             android:layout_width="wrap_content"
