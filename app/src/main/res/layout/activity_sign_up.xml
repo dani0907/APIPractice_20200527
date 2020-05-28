@@ -18,14 +18,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
-                android:id="@+id/signUpEmailEdt"
+                android:id="@+id/emailEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:hint="이메일 양식으로 입력"
                 android:inputType="textEmailAddress"/>
             <Button
-                android:id="@+id/emailCheckBtn"
+
+                android:id="@+id/idCheckBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="중복확인"
