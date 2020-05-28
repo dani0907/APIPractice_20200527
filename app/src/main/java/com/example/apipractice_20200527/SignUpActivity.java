@@ -44,7 +44,7 @@ public class SignUpActivity extends BaseActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                checkPasswords();
+                checkSignUpEnable();
 
             }
 
@@ -63,7 +63,7 @@ public class SignUpActivity extends BaseActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                checkPasswords();
+                checkSignUpEnable();
 
             }
 
@@ -80,7 +80,9 @@ public class SignUpActivity extends BaseActivity {
 
 //    응용문제 => 비번 / 비번확인중 어느 것을 타이핑해도 매번 둘 다 검사.
 
-    void checkPasswords(){
+    boolean checkPasswords(){
+
+        boolean isPwOk = false;
 
         String pw = binding.pwEdt.getText().toString();
 
@@ -92,7 +94,11 @@ public class SignUpActivity extends BaseActivity {
         }
         else{
             binding.pwCheckResultTxt.setText("사용해도 좋은 비밀번호입니다.");
+            isPwOk = true;
         }
+
+
+        boolean isPwRepeatOk = false;
 
         String pwRepeat = binding.pwRepeatEdt.getText().toString();
 
@@ -101,15 +107,24 @@ public class SignUpActivity extends BaseActivity {
         }
         else if(pwRepeat.equals(pw)){
             binding.pwRepeatCheckResultTxt.setText("비밀번호 재입력이 확인되었습니다.");
+            isPwRepeatOk = true;
         }
         else{
             binding.pwRepeatCheckResultTxt.setText("비밀번호가 서로 다릅니다.");
         }
 
+        return isPwOk && isPwRepeatOk;
 
     }
 
 
+//    아이디 중복 / 비번확인 / 닉네임 중복이 모두 통과여야 회원가입 버튼을 활성화
+//     하나라도 틀리면 회원가입 버튼 비활성화.
+    void checkSignUpEnable(){
+
+        boolean isAllPasswordOk = checkPasswords();
+
+    }
 
     @Override
     public void setValues() {
