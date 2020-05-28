@@ -33,7 +33,7 @@
                 android:layout_gravity="right"/>
         </FrameLayout>
         <TextView
-            android:id="@+id/emailCheckTxt"
+            android:id="@+id/idCheckResultTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="중복 검사를 해주세요."

@@ -20,6 +20,8 @@ public class SignUpActivity extends BaseActivity {
 
     ActivitySignUpBinding binding;
 
+    boolean idCheckOk = false;
+
 //    응용문제
 //    비번은 타이핑할때마다 길이 검사
 //    => 0글자 : 비밀번호를 입력해주세요.
@@ -62,6 +64,9 @@ public class SignUpActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         Toast.makeText(mContxt, "사용해도 좋은 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                        binding.idCheckResultTxt.setText("사용해도 좋은 아이디입니다.");
+
+                                        idCheckOk = true;
                                     }
                                 });
                             }
@@ -70,9 +75,16 @@ public class SignUpActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         Toast.makeText(mContxt, "중복검사에 통과하지 못했습니다.", Toast.LENGTH_SHORT).show();
+                                        binding.idCheckResultTxt.setText("중복검사에 통과하지 못했습니다.");
                                     }
                                 });
                             }
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    checkSignUpEnable();
+                                }
+                            });
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -170,9 +182,7 @@ public class SignUpActivity extends BaseActivity {
 
         boolean isAllPasswordOk = checkPasswords();
 
-        boolean isIdDuplCheckOk = true;
-
-        binding.signUpBtn.setEnabled(isAllPasswordOk && isIdDuplCheckOk);
+        binding.signUpBtn.setEnabled(isAllPasswordOk && idCheckOk);
 
     }
 
