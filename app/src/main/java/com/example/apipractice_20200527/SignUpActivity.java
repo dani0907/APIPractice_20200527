@@ -45,6 +45,30 @@ public class SignUpActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        binding.emailEdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+//                이메일을 변경하면 무조건 중복검사를 실패로 변경 => 재검사 요구
+                idCheckOk=false;
+                binding.idCheckResultTxt.setText("중복검사를 진행해주세요.");
+
+//                버튼 비활성화 체크
+                checkSignUpEnable();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         binding.idCheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
