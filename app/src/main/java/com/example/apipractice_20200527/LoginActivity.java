@@ -38,6 +38,14 @@ public class LoginActivity extends BaseActivity {
             }
         });
 
+        binding.singUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mContxt,SignUpActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -18,18 +18,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/signUpEmailEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:hint="이메일 양식으로 입력"
                 android:inputType="textEmailAddress"/>
             <Button
+                android:id="@+id/emailCheckBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="중복확인"
                 android:layout_gravity="right"/>
         </FrameLayout>
         <TextView
+            android:id="@+id/emailCheckTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="중복 검사를 해주세요."
@@ -41,6 +44,7 @@
             android:text="비밀번호"
             android:layout_marginTop="20dp"/>
         <EditText
+            android:id="@+id/pwEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="비밀번호 입력(8자 이상)"
@@ -48,6 +52,7 @@
             android:inputType="textPassword"/>
 
         <TextView
+            android:id="@+id/pwCheckResultTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="비밀번호를 입력해주세요."
@@ -60,12 +65,14 @@
             android:layout_marginTop="20dp"/>
 
         <EditText
+            android:id="@+id/pwRepeatEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:hint="비밀번호를 다시 입력해주세요."/>
 
         <TextView
+            android:id="@+id/pwRepeatCheckResultTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="비밀번호 확인을 다시 입력해주세요.."
@@ -82,12 +89,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/nickEdt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:hint="닉네임을 입력해주세요.(한글 가능)"
                 android:inputType="textEmailAddress"/>
             <Button
+                android:id="@+id/nickBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="중복확인"
