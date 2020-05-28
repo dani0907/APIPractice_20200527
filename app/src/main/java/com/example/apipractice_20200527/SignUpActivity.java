@@ -46,6 +46,26 @@ public class SignUpActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        binding.signUpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                회원가입 => 이메일 / 비번 / 닉네임 입력값 받아오자.
+
+                String email = binding.emailEdt.getText().toString();
+                String pw = binding.pwEdt.getText().toString();
+                String nickName = binding.nickEdt.getText().toString();
+
+//                서버에 회원가입 기능 호출 => 가입 정보 전달 (ServerUtil 회원가입 기능 필요)
+
+                ServerUtil.putRequestSignUp(mContxt, email, pw, nickName, new ServerUtil.JsonResponseHandler() {
+                    @Override
+                    public void onResponse(JSONObject json) {
+                        Log.d("회원가입응답",json.toString());
+                    }
+                });
+            }
+        });
+
         binding.nickEdt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
