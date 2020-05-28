@@ -21,6 +21,7 @@ public class SignUpActivity extends BaseActivity {
     ActivitySignUpBinding binding;
 
     boolean idCheckOk = false;
+    boolean nickCheckOk = false;
 
 //    응용문제
 //    비번은 타이핑할때마다 길이 검사
@@ -45,6 +46,26 @@ public class SignUpActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        binding.nickEdt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                nickCheckOk = false;
+                binding.nickNameCheckResultTxt.setText("중복검사를 해주세요.");
+
+                checkSignUpEnable();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 //        닉네임 중복 확인 버튼 => 서버에 중복 확인 요청 (문서 참조)
 //        => 성공일 경우 "사용해도 좋습니다" 토스트
 //        => 실패일 경우 " 중복된 닉네임 입니다." 토스트
@@ -66,6 +87,7 @@ public class SignUpActivity extends BaseActivity {
                                     @Override
                                     public void run() {
                                         binding.nickNameCheckResultTxt.setText("사용해도 좋은 닉네임입니다.");
+                                        nickCheckOk = true;
                                     }
                                 });
 
@@ -78,6 +100,13 @@ public class SignUpActivity extends BaseActivity {
                                     }
                                 });
                             }
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    checkSignUpEnable();
+                                }
+                            });
 
 
                         } catch (JSONException e) {
@@ -252,7 +281,7 @@ public class SignUpActivity extends BaseActivity {
 
         boolean isAllPasswordOk = checkPasswords();
 
-        binding.signUpBtn.setEnabled(isAllPasswordOk && idCheckOk);
+        binding.signUpBtn.setEnabled(isAllPasswordOk && idCheckOk && nickCheckOk);
 
     }
 
