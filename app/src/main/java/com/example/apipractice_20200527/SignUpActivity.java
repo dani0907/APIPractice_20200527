@@ -8,10 +8,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.apipractice_20200527.databinding.ActivitySignUpBinding;
 import com.example.apipractice_20200527.utils.ServerUtil;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SignUpActivity extends BaseActivity {
@@ -51,8 +53,31 @@ public class SignUpActivity extends BaseActivity {
                     @Override
                     public void onResponse(JSONObject json) {
                         Log.d("중복응답확인",json.toString());
+
+                        try {
+                            int code = json.getInt("code");
+                            if (code ==200){
+//                                중복검사 통과
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(mContxt, "사용해도 좋은 아이디입니다.", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                            else{
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Toast.makeText(mContxt, "중복검사에 통과하지 못했습니다.", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                });
+               });
 
             }
         });
