@@ -55,11 +55,13 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
 
         if(data.getSide().equals("찬성")){
             sideTxt.setTextColor(Color.RED);
+            sideTxt.setBackgroundResource(R.drawable.red_border_box);
 
         }
         else{
 
             sideTxt.setTextColor(Color.BLUE);
+            sideTxt.setBackgroundResource(R.drawable.blue_border_box);
         }
 
         return row;
