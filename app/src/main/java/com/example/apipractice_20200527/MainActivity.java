@@ -116,6 +116,8 @@ public class MainActivity extends BaseActivity {
 
                                 Glide.with(mContxt).load(thisWeekTopic.getImageUrl()).into(binding.topicImg);
                                 binding.topicTitleTxt.setText(thisWeekTopic.getTitle());
+
+                                tra.notifyDataSetChanged();
                             }
                         });
 
