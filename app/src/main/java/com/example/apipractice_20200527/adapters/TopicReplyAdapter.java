@@ -38,5 +38,7 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
             row=inf.inflate(R.layout.topic_reply_list_item,null);
         }
 
+        return row;
+
     }
 }
