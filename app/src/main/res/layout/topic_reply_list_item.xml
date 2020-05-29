@@ -24,7 +24,7 @@
 
     </LinearLayout>
     <TextView
-        android:id="@+id/conTxt"
+        android:id="@+id/contentTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"
@@ -39,7 +39,7 @@
         android:gravity="center_vertical"
         android:padding="5dp">
         <TextView
-            android:id="@+id/minTxt"
+            android:id="@+id/createdTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="\?분전"
@@ -50,7 +50,7 @@
             android:background="#efefef"
             android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/contentTxt"
+            android:id="@+id/reportTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
