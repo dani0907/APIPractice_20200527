@@ -9,13 +9,29 @@
         android:gravity="center_horizontal"
         android:padding="10dp"
         tools:context=".MainActivity">
-        <ImageView
-            android:id="@+id/topicImg"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@mipmap/ic_launcher"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="10dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+            <ImageView
+                android:id="@+id/topicImg"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@mipmap/ic_launcher"
+                android:scaleType="centerCrop"/>
+
+
+            <TextView
+                android:id="@+id/topicTitleTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:text="토론 주제 자리"
+                android:gravity="center"
+                android:background="#aa000000"
+                android:textColor="#ffffff"/>
+        </FrameLayout>
+
         <TextView
             android:id="@+id/nickNameTxt"
             android:layout_width="wrap_content"
