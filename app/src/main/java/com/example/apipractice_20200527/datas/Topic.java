@@ -3,7 +3,9 @@ package com.example.apipractice_20200527.datas;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Topic {
+import java.io.Serializable;
+
+public class Topic implements Serializable {
 
     private int id;
     private String title;
