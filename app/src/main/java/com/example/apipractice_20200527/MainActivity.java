@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.apipractice_20200527.adapters.TopicReplyAdapter;
 import com.example.apipractice_20200527.databinding.ActivityMainBinding;
 import com.example.apipractice_20200527.datas.Topic;
 import com.example.apipractice_20200527.datas.TopicReply;
@@ -31,6 +32,7 @@ public class MainActivity extends BaseActivity {
     ActivityMainBinding binding;
 
     List<TopicReply> replyList = new ArrayList<>();
+    TopicReplyAdapter tra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,5 +125,8 @@ public class MainActivity extends BaseActivity {
 
             }
         });
+
+        tra = new TopicReplyAdapter(mContxt,R.layout.topic_reply_list_item,replyList);
+        binding.replyListView.setAdapter(tra);
     }
 }
