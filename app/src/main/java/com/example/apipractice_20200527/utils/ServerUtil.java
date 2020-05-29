@@ -185,8 +185,8 @@ public class ServerUtil {
 //        요청할 때 파라미터를 주소에 모두 적어줘야한다.
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(BASE_URL+"/main_info").newBuilder();
-//        urlBuilder.addEncodedQueryParameter("type",checkType);
-//        urlBuilder.addEncodedQueryParameter("value",input);
+        urlBuilder.addEncodedQueryParameter("device_token","임시 기기값");
+        urlBuilder.addEncodedQueryParameter("os","etc");
 
         String completeUrl = urlBuilder.build().toString();
         Log.d("완성된URL",completeUrl);
@@ -222,5 +222,7 @@ public class ServerUtil {
             }
         });
     }
+
+
 
 }
