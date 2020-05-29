@@ -18,6 +18,7 @@ import com.example.apipractice_20200527.datas.User;
 import com.example.apipractice_20200527.utils.ContextUtil;
 import com.example.apipractice_20200527.utils.ServerUtil;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -87,7 +88,13 @@ public class MainActivity extends BaseActivity {
 
                         final Topic thisWeekTopic = Topic.getTopicFromJson(topic);
 
+//                        댓글 목록도 파싱하자.
 
+                        JSONArray replies = data.getJSONArray("replies");
+                        for(int i= 0; i < replies.length(); i++){
+                            JSONObject reply = replies.getJSONObject(i);
+                            Log.d("댓글내용",reply.getString("content"));
+                        }
 
                         runOnUiThread(new Runnable() {
                             @Override
