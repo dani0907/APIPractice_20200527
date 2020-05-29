@@ -15,7 +15,7 @@ public class User {
         try {
             u.id = jsonObject.getInt("id");
             u.email = jsonObject.getString("email");
-            u.nickName = jsonObject.getString("nick_Name");
+            u.nickName = jsonObject.getString("nick_name");
         } catch (JSONException e) {
             e.printStackTrace();
         }
