@@ -1,12 +1,15 @@
 package com.example.apipractice_20200527;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.apipractice_20200527.databinding.ActivityMainBinding;
@@ -37,10 +40,27 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                ContextUtil.setLoginUserToken(mContxt,"");
-                Intent myIntent = new Intent(mContxt, LoginActivity.class);
-                startActivity(myIntent);
-                finish();
+                AlertDialog.Builder alert = new AlertDialog.Builder(mContxt);
+                alert.setTitle("로그아웃");
+                alert.setMessage("정말 로그아웃 하시겠습니까?");
+                alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ContextUtil.setLoginUserToken(mContxt,"");
+
+                        Intent myIntent = new Intent(mContxt, LoginActivity.class);
+                        startActivity(myIntent);
+
+                        finish();
+                    }
+                });
+                alert.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(mContxt, "로그아웃을 취소했습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                alert.show();
             }
         });
 
