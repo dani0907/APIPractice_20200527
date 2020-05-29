@@ -69,6 +69,8 @@ public class LoginActivity extends BaseActivity {
 
                                 ContextUtil.setLoginUserToken(mContxt, token);
 
+                                ContextUtil.setAutoLogin(mContxt,binding.autoLoginCheckBox.isChecked());
+
                                 Intent myIntent = new Intent(mContxt,MainActivity.class);
                                 startActivity(myIntent);
                                 finish();

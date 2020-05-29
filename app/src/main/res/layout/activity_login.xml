@@ -20,6 +20,11 @@
             android:hint="비번입력"
             android:inputType="textPassword"
             android:id="@+id/pwEdt"/>
+        <CheckBox
+            android:id="@+id/autoLoginCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="자동로그인"/>
 
         <Button
             android:id="@+id/loginBtn"
