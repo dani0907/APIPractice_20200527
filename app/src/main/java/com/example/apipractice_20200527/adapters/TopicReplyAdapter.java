@@ -1,6 +1,7 @@
 package com.example.apipractice_20200527.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,11 +44,23 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
 
         TextView contextTxt = row.findViewById(R.id.contentTxt);
         TextView writerNickNameTxt = row.findViewById(R.id.writerNickNameTxt);
+        TextView sideTxt = row.findViewById(R.id.sideTxt);
 
         TopicReply data = mList.get(position);
 
         contextTxt.setText(data.getContent());
         writerNickNameTxt.setText(data.getWriter().getNickName());
+
+        sideTxt.setText(data.getSide());
+
+        if(data.getSide().equals("찬성")){
+            sideTxt.setTextColor(Color.RED);
+
+        }
+        else{
+
+            sideTxt.setTextColor(Color.BLUE);
+        }
 
         return row;
 
