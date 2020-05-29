@@ -42,10 +42,12 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
         }
 
         TextView contextTxt = row.findViewById(R.id.contentTxt);
+        TextView writerNickNameTxt = row.findViewById(R.id.writerNickNameTxt);
 
         TopicReply data = mList.get(position);
 
         contextTxt.setText(data.getContent());
+        writerNickNameTxt.setText(data.getWriter().getNickName());
 
         return row;
 
