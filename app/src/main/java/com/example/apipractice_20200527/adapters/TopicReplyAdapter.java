@@ -17,6 +17,7 @@ import com.example.apipractice_20200527.datas.TopicReply;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
@@ -45,6 +46,7 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
         TextView contextTxt = row.findViewById(R.id.contentTxt);
         TextView writerNickNameTxt = row.findViewById(R.id.writerNickNameTxt);
         TextView sideTxt = row.findViewById(R.id.sideTxt);
+        TextView createdAtTxt = row.findViewById(R.id.createdAtTxt);
 
         TopicReply data = mList.get(position);
 
@@ -65,7 +67,11 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
         }
 
 //        언제 댓글을 남겼는지 표시.
-//        댓글 남긴 시간을 파싱싱
+//        댓글 남긴 시간을 파싱  => M월 d일 H시 m분
+
+        SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 a h시 m분");
+        createdAtTxt.setText(sdf.format(data.getCreatedAt().getTime()));
+
 
        return row;
 
