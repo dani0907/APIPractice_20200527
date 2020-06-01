@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.apipractice_20200527.adapters.UserAdapter;
 import com.example.apipractice_20200527.databinding.ActivityUserListBinding;
 import com.example.apipractice_20200527.datas.User;
 import com.example.apipractice_20200527.utils.ServerUtil;
@@ -22,7 +23,9 @@ public class UserListActivity extends BaseActivity {
 //  /user-Get으로 접근해서, 사용자 목록을 리스트뷰로 출력
 //    닉네임(이메일주소) => 이 양식으로 표현.
     ActivityUserListBinding binding;
+
     List<User> users = new ArrayList<>();
+    UserAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,8 @@ public class UserListActivity extends BaseActivity {
 
     @Override
     public void setValues() {
+        mAdapter = new UserAdapter(mContxt,R.layout.user_list_item, users);
+        binding.userListView.setAdapter(mAdapter);
 
     }
 
