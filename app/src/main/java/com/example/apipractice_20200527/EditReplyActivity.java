@@ -107,14 +107,6 @@ public class EditReplyActivity extends BaseActivity {
                 ab.setNegativeButton("취소",null);
                 ab.show();
 
-                ServerUtil.postRequestTopic(mContxt, topicId, content, side, new ServerUtil.JsonResponseHandler() {
-                    @Override
-                    public void onResponse(JSONObject json) {
-                        Log.d("의견 남기기 응답",json.toString());
-
-                    }
-                });
-
             }
         });
 

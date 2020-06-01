@@ -46,7 +46,7 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
         TextView contextTxt = row.findViewById(R.id.contentTxt);
         TextView writerNickNameTxt = row.findViewById(R.id.writerNickNameTxt);
         TextView sideTxt = row.findViewById(R.id.sideTxt);
-        TextView createdAtTxt = row.findViewById(R.id.createdAtTxt);
+        TextView createdAtTxt = row.findViewById(R.id.createdTxt);
 
         TopicReply data = mList.get(position);
 
