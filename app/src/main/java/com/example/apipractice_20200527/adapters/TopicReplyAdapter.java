@@ -69,8 +69,12 @@ public class TopicReplyAdapter extends ArrayAdapter<TopicReply> {
 //        언제 댓글을 남겼는지 표시.
 //        댓글 남긴 시간을 파싱  => M월 d일 H시 m분
 
-        SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 a h시 m분");
-        createdAtTxt.setText(sdf.format(data.getCreatedAt().getTime()));
+
+
+//        SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 a h시 m분");
+//        createdAtTxt.setText(sdf.format(data.getCreatedAt().getTime()));
+
+        createdAtTxt.setText(data.getFormattedTimeAgo());
 
 
        return row;
