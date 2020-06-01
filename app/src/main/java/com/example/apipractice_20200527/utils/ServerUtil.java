@@ -27,22 +27,23 @@ public class ServerUtil {
         void onResponse(JSONObject json);
     }
 
-    public static void postRequestLogin(Context context, String email, String pw, final JsonResponseHandler handler){
+    public static void postRequestLogin(Context context, int topicId, String content, String side, final JsonResponseHandler handler){
 
 //        안드로이드 앱이 클라이언트로서의 역할을 하도록 도와주는 객체.
         OkHttpClient client = new OkHttpClient();
 
 //        POST 메소드는 FormBody에 필요한 데이터를 첨부.
         RequestBody requestBody = new FormBody.Builder()
-                .add("email", email)
-                .add("password",pw)
+                .add("topic_id", topicId+"")
+                .add("content",content)
+                .add("selected_side",side)
                 .build();
 //        API에 접근하기 위한 정보가 적혀있는 Request 변수를 만들자.
 //        /user + POST => http://아이피주소/user+POST
         Request request = new Request.Builder()
                 .url(BASE_URL+"/user")
                 .post(requestBody)
-//                .header()//헤더가 필요하다면 이 시점에서 첨부.
+                .header("X-Http-Token",ContextUtil.getLoginUserToken(context))//헤더가 필요하다면 이 시점에서 첨부.
                 .build();
 
 //        client를 이용해서 실제로 서버에 접근.

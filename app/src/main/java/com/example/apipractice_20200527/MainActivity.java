@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(mContxt,EditReplyActivity.class);
-//                myIntent.putExtra(); //댓글 달 주제를 넘겨주자.
+                myIntent.putExtra("topic",thisWeekTopic); //댓글 달 주제를 넘겨주자.
                 startActivity(myIntent);
             }
         });
