@@ -80,11 +80,16 @@ public class TopicReply {
     public void setSide(String side) {
         this.side = side;
     }
+
     public User getWriter() {
         return writer;
     }
 
     public void setWriter(User writer) {
         this.writer = writer;
+    }
+
+    public Calendar getCreatedAt() {
+        return createdAt;
     }
 }
