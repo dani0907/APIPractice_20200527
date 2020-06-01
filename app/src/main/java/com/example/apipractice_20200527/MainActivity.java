@@ -47,6 +47,14 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setupEvents() {
 
+        binding.goToUserListBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(mContxt,UserListActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
         binding.postReplyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
