@@ -10,6 +10,8 @@ import com.example.apipractice_20200527.databinding.ActivityUserListBinding;
 import com.example.apipractice_20200527.datas.User;
 import com.example.apipractice_20200527.utils.ServerUtil;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -51,8 +53,24 @@ public class UserListActivity extends BaseActivity {
             @Override
             public void onResponse(JSONObject json) {
                 Log.d("사용자목록확인", json.toString());
+
+                try {
+                    int code = json.getInt("code");
+                    JSONObject data = json.getJSONObject("data");
+                    JSONArray usersJsonArray = data.getJSONArray("users");
+
+                    for(int i = 0; i<usersJsonArray.length(); i++){
+                        JSONObject userJsonObj = usersJsonArray.getJSONObject(i);
+                        User user = User.getUserFromJson(userJsonObj);
+                        users.add(user);
+                    }
+
+//                    notifyDataset필요하다.
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-        });
+       });
     }
 
 
