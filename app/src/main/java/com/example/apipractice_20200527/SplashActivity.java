@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import com.example.apipractice_20200527.utils.ContextUtil;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class SplashActivity extends BaseActivity {
 
@@ -33,6 +35,14 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
+                try{
+                    Log.d("디바이스토큰", FirebaseInstanceId.getInstance().getToken());
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
+
                 if(!ContextUtil.getLoginUserToken(mContxt).equals("") && ContextUtil.isAutoLogin(mContxt)){
                     Intent myIntent = new Intent(mContxt,MainActivity.class);
                     startActivity(myIntent);
